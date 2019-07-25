@@ -396,7 +396,7 @@ mark,
   border: 2px solid #dee2e6;
   border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
   max-width: 100%;
-  height: auto; }
+  height: 50%; }
 
 .figure {
   display: inline-block; }
