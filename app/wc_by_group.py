@@ -121,5 +121,6 @@ plt.imshow(wc, interpolation="bilinear")
 plt.axis("off")
 plt.show()
 
-#inspired from: https://github.com/amueller/word_cloud/blob/master/examples/colored_by_group.py
+#inspired from: https://minimaxir.com/2016/05/wordclouds/
+# https://github.com/amueller/word_cloud/blob/master/examples/colored_by_group.py
 # API reference: https://amueller.github.io/word_cloud/generated/wordcloud.WordCloud.html#wordcloud.WordCloud
