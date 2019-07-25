@@ -47,6 +47,7 @@ fetch(req).then(function (response) {
                 var tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = newsarticles[i][col[j]];
             }
+            
         }
         var divContainer = document.getElementById("news");
         divContainer.innerHTML = "";
@@ -79,3 +80,8 @@ fetch(req).then(function (response) {
 //     })
 
 
+var tblrows = document.getElementsByTagName('tr');
+
+for(i=0;i<tblrows.length;i++){
+    if(i%2==0) tblrows[i].style.backgroundColor = '#6d7fcc'
+}

@@ -171,3 +171,14 @@ width: 100%;
     position: relative;
     padding: 1rem .5rem .5rem 2rem
 }
+
+#map{
+    padding: 10px;
+}
+
+table tr:nth-child(odd) td{
+    background-color:rgba(29, 3, 3, 0);
+}
+table tr:nth-child(even) td{
+    background-color:#fff;
+}
