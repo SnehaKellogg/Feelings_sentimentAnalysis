@@ -47,6 +47,10 @@ def twitterstats():
     # """Return the homepage."""
     return render_template("whytwitter.html")
 
+@app.route("/team")
+def team():
+    # """Return the homepage."""
+    return render_template("team.html")
 
 
 if __name__ == "__main__":
