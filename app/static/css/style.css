@@ -177,7 +177,7 @@ caption {
 th {
   text-align: inherit;
   font-size: smaller;
-  color: turquoise !important;}
+  color: deeppink !important;}
 
 label {
   display: inline-block;
@@ -7051,9 +7051,9 @@ table td {
   background-color: #fff;
   font-variant-caps: small-caps; 
   font-kerning: none;
-  color: tomato;
+  color: green;
   border: dotted 1px black;
-  width: 100%; }
+  width: 30%; } /*changed for news column structure */
 
 .table-bordered {
   background-color: #333;
