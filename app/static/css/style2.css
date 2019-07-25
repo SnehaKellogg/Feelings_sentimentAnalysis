@@ -176,9 +176,13 @@ width: 100%;
     padding: 10px;
 }
 
-table tr:nth-child(odd) td{
+/* table tr:nth-child(odd) td{
     background-color:rgba(29, 3, 3, 0);
 }
 table tr:nth-child(even) td{
     background-color:#fff;
+} */
+#narrow{
+    width: 3px;
+
 }

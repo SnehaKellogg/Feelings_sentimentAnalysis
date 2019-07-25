@@ -7051,7 +7051,9 @@ table td {
   background-color: #fff;
   font-variant-caps: small-caps; 
   font-kerning: none;
-  color: tomato;}
+  color: tomato;
+  border: dotted 1px black;
+  width: 100%; }
 
 .table-bordered {
   background-color: #333;

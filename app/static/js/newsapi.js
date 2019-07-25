@@ -14,6 +14,7 @@ var url = 'https://newsapi.org/v2/everything?' + // everything for all the news
 console.log(url);
 var req = new Request(url);
 
+
 fetch(req).then(function (response) {
     return response.json();
 })
@@ -31,11 +32,13 @@ fetch(req).then(function (response) {
             }
         }
         var table = document.createElement("table");
+        table.setAttribute("class", "table-bordered");  // comment this for a lighter straight border
         var tr = table.insertRow(-1);                   // TABLE ROW.
 
-        for (var i = 2; i < col.length -3; i++) {
+        for (var i = 2; i < col.length -3; i++) {       //removing the last 3 columns
             var th = document.createElement("th");      // TABLE HEADER.
             th.innerHTML = col[i];
+            th.style.width="33.33%";
             tr.appendChild(th);
         }
         // ADD JSON DATA TO THE TABLE AS ROWS.
@@ -43,18 +46,25 @@ fetch(req).then(function (response) {
 
             tr = table.insertRow(-1);
 
-            for (var j = 2; j < col.length -3; j++) {
+            for (var j = 2; j < col.length -4; j++) {
                 var tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = newsarticles[i][col[j]];
             }
-            
+            for (var j = 4;j < col.length -3; j++) {
+                var tabCell = tr.insertCell(-1);
+                var aTag = document.createElement('a');
+                aTag.setAttribute('href',newsarticles[i][col[j]]);
+                aTag.innerHTML = newsarticles[i][col[j]];
+                tabCell.appendChild(aTag);
+                tabCell.setAttribute("id", "narrow");
+                // tabcell.style.width= "30%";
+            }
         }
         var divContainer = document.getElementById("news");
         divContainer.innerHTML = "";
         divContainer.appendChild(table);
     });
     
-
 
 // // Top and breaking news:
 // var url = 'https://newsapi.org/v2/top-headlines?' +
@@ -78,10 +88,3 @@ fetch(req).then(function (response) {
 //     .then(function(response) {
 //         console.log(response.json());
 //     })
-
-
-var tblrows = document.getElementsByTagName('tr');
-
-for(i=0;i<tblrows.length;i++){
-    if(i%2==0) tblrows[i].style.backgroundColor = '#6d7fcc'
-}
