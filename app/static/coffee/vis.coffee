@@ -94,7 +94,7 @@ Bubbles = () ->
   # ---
   # Creates new chart function. This is the 'constructor' of our
   #  visualization
-  # Check out http://bost.ocks.org/mike/chart/ 
+ 
   #  for a explanation and rational behind this function design
   # ---
   chart = (selection) ->
@@ -126,8 +126,7 @@ Bubbles = () ->
 
       # label is the container div for all the labels that sit on top of 
       # the bubbles
-      # - remember that we are keeping the labels in plain html and 
-      #  the bubbles in svg
+
       label = d3.select(this).selectAll("#bubble-labels").data([data])
         .enter()
         .append("div")
@@ -269,7 +268,7 @@ Bubbles = () ->
   # nodes from touching
   # This version is brute force
   # we could use quadtree to speed up implementation
-  # (which is what Mike's original version does)
+
   # ---
   collide = (jitter) ->
     # return a function that modifies
@@ -404,14 +403,6 @@ root.plotData = (selector, data, plot) ->
     .datum(data)
     .call(plot)
 
-
-# $.ajax({
-#   type: "POST",
-#   url: "../Convert.py",
-#   data: { param: text}
-# }).done(function( o ) {
-#    // do something
-# });
 
 texts = [
   {key:"aesop",file:"../static/data/top_aesop.csv",name:"Aesop's Fables"}]
