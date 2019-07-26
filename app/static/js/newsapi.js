@@ -56,7 +56,7 @@ fetch(req).then(function (response) {
                 aTag.setAttribute('href',newsarticles[i][col[j]]);
                 aTag.innerHTML = newsarticles[i][col[j]];
                 tabCell.appendChild(aTag);
-                tabCell.setAttribute("id", "narrow");
+                // tabCell.setAttribute("id", "narrow");
                 // tabcell.style.width= "30%";
             }
         }
