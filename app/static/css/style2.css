@@ -186,4 +186,7 @@ table tr:nth-child(even) td{
     width: 3px;
 
 }
-.far{padding: 6px !important}
+.far{margin:2px;
+    left:2px;
+    right:2px;
+}
