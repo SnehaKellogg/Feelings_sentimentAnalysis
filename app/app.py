@@ -21,6 +21,11 @@ def index():
     # """Return the homepage."""
     return render_template("index.html")
 
+@app.route("/bubblecloud")
+def bubblecloud():
+    # """Return the homepage."""
+    return render_template("index_bubble.html")
+
 
 @app.route("/news")
 # /v2/top-headlines
