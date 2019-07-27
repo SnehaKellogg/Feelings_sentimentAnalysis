@@ -21,6 +21,13 @@ def index():
     # """Return the homepage."""
     return render_template("index.html")
 
+@app.route('/', methods=['POST'])
+def my_form_post():
+    text = request.form['text']
+    processed_text = text.upper()
+    return processed_text
+
+
 @app.route("/bubblecloud")
 def bubblecloud():
     # """Return the homepage."""
@@ -37,6 +44,7 @@ def news():
 def nav():
     return render_template("sidebar.html")
 
+
 @app.route("/bubbles")
 def bubbles():
     return render_template("index1.html")
@@ -47,10 +55,12 @@ def worldmap():
     # """Return the homepage."""
     return render_template("Worldmap.html")
 
+
 @app.route("/twitterstats")
 def twitterstats():
     # """Return the homepage."""
     return render_template("whytwitter.html")
+
 
 @app.route("/team")
 def team():
