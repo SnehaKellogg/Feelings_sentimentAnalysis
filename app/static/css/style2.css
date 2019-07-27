@@ -190,3 +190,7 @@ table tr:nth-child(even) td{
     left:2px;
     right:2px;
 }
+
+#tweety {
+    background: src(#defaultCanvas0);
+}

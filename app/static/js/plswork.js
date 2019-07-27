@@ -28,8 +28,8 @@ function handleChange(event) {
   // grab the value of the input field
   const value = d3.event.target.value;
   console.log(value);
-  document.getElementById("output").innerHTML = "You searched for " + value;
-}
+  document.getElementById("output").innerHTML = "You searched for <code>&lt;" + value+ "&gt;</code>";
+  }
 text.on("change", handleChange);
 
 //   // clear the existing output
