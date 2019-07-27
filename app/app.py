@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import numpy as np
 #import pickle
-from sklearn.externals import joblib
+# from sklearn.externals import joblib
 #from twitterscraper.kill import scrape_tweets
 
 # import sqlalchemy
