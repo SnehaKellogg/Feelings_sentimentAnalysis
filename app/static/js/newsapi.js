@@ -1,7 +1,6 @@
-
 // For particular topic:
-
-var searchinput = "value";
+var value;
+console.log(value);
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -9,7 +8,7 @@ var yyyy = today.getFullYear();
 var date = yyyy + '-' + mm + '-' + dd; //2017-12-01
 // const apikey = `b2ce97241188410e9ecc5d06f604130f`
 var url = 'https://newsapi.org/v2/everything?' + // everything for all the news
-    `q=${searchinput}&from=${date}&sortBy=popularity&apiKey=${apiKey}`;
+    `q=${value}&from=${date}&sortBy=popularity&apiKey=${apiKey}`;
    
 console.log(url);
 var req = new Request(url);

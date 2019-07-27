@@ -32,6 +32,14 @@ function handleChange(event) {
   }
 text.on("change", handleChange);
 
+
+var globalVariable={
+    searchword: value
+ };
+
+
+
+
 //   // clear the existing output
 //   output.html("");
 //   document.getElementById("output").innerHTML = "You searched for" + value;

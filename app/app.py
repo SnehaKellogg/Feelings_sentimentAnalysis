@@ -24,9 +24,16 @@ def index():
 @app.route('/', methods=['POST'])
 def my_form_post():
     text = request.form['text']
-    processed_text = text.upper()
-    return processed_text
+    input_text = text.upper()
+    return input_text
 
+# @app.route('/varname', methods=['POST'])
+# def get_names():
+#    if request.method == 'POST':
+# 	   names = request.get_json()
+# 		   for name in names:
+# 			print name			
+# 	return '', 200
 
 @app.route("/bubblecloud")
 def bubblecloud():
