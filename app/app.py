@@ -22,6 +22,7 @@ app = Flask(__name__, static_url_path='/static')
 # location = '/static'
 # fullpath = os.path.join(location, 'tweet.pkl')
 # model = joblib.load(fullpath)
+# model=joblib.load('tweet.pkl')
 
 
 @app.route("/",methods=['GET'])
