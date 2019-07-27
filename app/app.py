@@ -25,16 +25,21 @@ def index():
     # """Return the homepage."""
     return render_template("index.html")
 
-@app.route("/scrape", methods=['POST'])
-def scrape():
-    scrape_tweets(searchterm)
-    return redirect("/")
+@app.route('/', methods=['POST'])
+def my_form_post():
+   text = request.form['text']
+   input_text = text.upper()
+   return input_text
 
-@app.route("/classify", methods=['POST'])
-def classify():
+# @app.route("/classify", methods=['POST'])
+# def scrape():
+#     table=scrape_tweets(input_text)
+#     return redirect("index.html", data=)
 
-    return redirect("/")
-
+@app.route("/bubblecloud")
+def bubblecloud():
+    # """Return the homepage."""
+    return render_template("index_bubble.html")
 
 @app.route("/news")
 # /v2/top-headlines
@@ -66,8 +71,8 @@ def team():
     # """Return the homepage."""
     return render_template("team.html")
 
-@app.route("/scrape")
-def 
+# @app.route("/scrape")
+# def 
 
 
 if __name__ == "__main__":
