@@ -1,6 +1,6 @@
 // For particular topic:
 // window.onload = alert(localStorage.getItem("searchinput"));
-var value = "apple";
+var value = "pickle";
 // var value = localStorage.getItem("searchinput")
 // console.log(searchinput);
 var today = new Date();
