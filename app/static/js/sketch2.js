@@ -3,11 +3,11 @@ var spots;
 var img;
 
 function preload() {
-  img=loadImage("/static/images/twitter.png");
+  img=loadImage("/static/images/1000n186.png");
 }
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1000, 186);
   var density = displayDensity();
   pixelDensity(1);
   img.loadPixels();
@@ -46,7 +46,7 @@ function draw() {
       count++;
     }
     attempts++;
-    if (attempts > 1000) {
+    if (attempts > 500) {
       noLoop();
       console.log("finished");
       break;
@@ -101,3 +101,5 @@ function newCircle() {
     return null;
   }
 }
+
+// document.getElementById("defaultCanvas0").

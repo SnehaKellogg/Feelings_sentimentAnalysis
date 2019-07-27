@@ -21,10 +21,17 @@ app = Flask(__name__, static_url_path='/static')
 
 model=joblib.load("tweet.pkl")
 
-@app.route("/")
+@app.route("/",methods=['GET'])
 def index():
     # """Return the homepage."""
     return render_template("index.html")
+    searchinput = request.args.get('text-input','')
+    # return searchinput
+
+# @app.route("/", methods=['GET'])
+# def serchword():
+    
+
 
 @app.route('/', methods=['POST'])
 def my_form_post():
@@ -46,7 +53,7 @@ def bubblecloud():
 # /v2/top-headlines
 def news():
     return render_template("news.html")
-
+    
 
 @app.route("/sidebar")
 def nav():

@@ -23,21 +23,18 @@ function counter(text) {
   return counts;
 }
 
+var value;
 // Function to handle input change
 function handleChange(event) {
   // grab the value of the input field
-  const value = d3.event.target.value;
-  console.log(value);
-  document.getElementById("output").innerHTML = "You searched for <code>&lt;" + value+ "&gt;</code>";
+  value = d3.event.target.value;
+  document.getElementById("output").innerHTML = "You searched for <code>&lt;"<?php echo $_GET['arg']; ?>"&gt;</code>";
+//   return value;
   }
 text.on("change", handleChange);
 
 
-var globalVariable={
-    searchword: value
- };
-
-
+// localStorage.setItem("searchinput",value);
 
 
 //   // clear the existing output
