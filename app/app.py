@@ -1,10 +1,11 @@
 import os
+from pathlib import Path
 
 import pandas as pd
 import numpy as np
-#import pickle
-#from sklearn.externals import joblib
-#from twitterscraper.kill import scrape_tweets
+import pickle
+from sklearn.externals import joblib
+# from twitterscraper.kill import scrape_tweets
 
 # import sqlalchemy
 # from sqlalchemy.ext.automap import automap_base
@@ -18,29 +19,32 @@ from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__, static_url_path='/static')
 
-#model=joblib.load("tweet.pkl")
+# location = '/static'
+# fullpath = os.path.join(location, 'tweet.pkl')
+# model = joblib.load(fullpath)
+
 
 @app.route("/",methods=['GET'])
 def index():
     # """Return the homepage."""
     return render_template("index.html")
     searchinput = request.args.get('text-input','')
-    # return searchinput
+    return searchinput
 
 # @app.route("/", methods=['GET'])
-# def serchword():
+# def searchword():
     
 
 
-@app.route('/', methods=['POST'])
-def my_form_post():
-   text = request.form['text']
-   input_text = text.upper()
-   return input_text
+# @app.route('/', methods=['POST'])
+# def my_form_post():
+#    text = request.form['text']
+#    input_text = text.upper()
+#    return input_text
 
 @app.route("/scrape", methods=['POST'])
 def scrape():
-    table=scrape_tweets(input_text)
+    table=scrape_tweets(searchinput)
     return redirect("index.html", data=table)
 
 @app.route("/bubblecloud")
