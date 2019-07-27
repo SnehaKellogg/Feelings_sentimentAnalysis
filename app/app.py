@@ -2,6 +2,9 @@ import os
 
 import pandas as pd
 import numpy as np
+#import pickle
+#from sklearn.externals import joblib
+#from twitterscraper.kill import scrape_tweets
 
 # import sqlalchemy
 # from sqlalchemy.ext.automap import automap_base
@@ -15,6 +18,7 @@ from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__, static_url_path='/static')
 
+#model=joblib.load("tweet.pkl")
 
 @app.route("/",methods=['GET'])
 def index():
@@ -28,12 +32,21 @@ def index():
     
 
 
+@app.route('/', methods=['POST'])
+def my_form_post():
+   text = request.form['text']
+   input_text = text.upper()
+   return input_text
+
+@app.route("/scrape", methods=['POST'])
+def scrape():
+    table=scrape_tweets(input_text)
+    return redirect("index.html", data=table)
 
 @app.route("/bubblecloud")
 def bubblecloud():
     # """Return the homepage."""
     return render_template("index_bubble.html")
-
 
 @app.route("/news")
 # /v2/top-headlines
@@ -45,7 +58,6 @@ def news():
 def nav():
     return render_template("sidebar.html")
 
-
 @app.route("/bubbles")
 def bubbles():
     return render_template("index1.html")
@@ -56,17 +68,18 @@ def worldmap():
     # """Return the homepage."""
     return render_template("Worldmap.html")
 
-
 @app.route("/twitterstats")
 def twitterstats():
     # """Return the homepage."""
     return render_template("whytwitter.html")
 
-
 @app.route("/team")
 def team():
     # """Return the homepage."""
     return render_template("team.html")
+
+# @app.route("/scrape")
+# def 
 
 
 if __name__ == "__main__":
