@@ -67,10 +67,14 @@ def main(query, begindate, enddate, limit, lang):
         new_dict['tweet_id'] = row.tweet_id
         new_dict['text'] = row.text
         new_dict['time'] = row.timestamp
-        new_dict['score'] = score
         new_dict['sentiment'] = loaded_model.classify(tweet)
         new_dict['score'] = loaded_model.prob_classify('pos')
         #username = row.username
         #twitterscraper.query.quer_user_info
         tweet_list.append(new_dict)
     return(tweet_list)
+
+
+fsghlksgjlkds(
+    
+)
