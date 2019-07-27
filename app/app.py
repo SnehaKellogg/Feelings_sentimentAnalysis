@@ -25,11 +25,11 @@ def index():
     # """Return the homepage."""
     return render_template("index.html")
 
-# @app.route('/', methods=['POST'])
-# def my_form_post():
-#    text = request.form['text']
-#    input_text = text.upper()
-#    return input_text
+@app.route('/', methods=['POST'])
+def my_form_post():
+   text = request.form['text']
+   input_text = text.upper()
+   return input_text
 
 # @app.route("/classify", methods=['POST'])
 # def scrape():
