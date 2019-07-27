@@ -405,7 +405,7 @@ root.plotData = (selector, data, plot) ->
 
 
 texts = [
-  {key:"aesop",file:"../static/data/top_aesop.csv",name:"Aesop's Fables"}]
+  {key:"aesop",file:"../static/data/data.csv",name:"iz a viruz ;)"}]
 
 # ---
 # jQuery document ready.
