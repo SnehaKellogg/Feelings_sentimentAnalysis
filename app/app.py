@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import numpy as np
 #import pickle
-from sklearn.externals import joblib
+#from sklearn.externals import joblib
 #from twitterscraper.kill import scrape_tweets
 
 # import sqlalchemy
@@ -18,7 +18,7 @@ from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__, static_url_path='/static')
 
-model=joblib.load("tweet.pkl")
+#model=joblib.load("tweet.pkl")
 
 @app.route("/")
 def index():
