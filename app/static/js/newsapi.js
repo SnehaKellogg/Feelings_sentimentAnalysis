@@ -1,6 +1,8 @@
 // For particular topic:
-var value;
-console.log(value);
+// window.onload = alert(localStorage.getItem("searchinput"));
+var value = "apple";
+// var value = localStorage.getItem("searchinput")
+// console.log(searchinput);
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!

@@ -176,12 +176,6 @@ width: 100%;
     padding: 10px;
 }
 
-/* table tr:nth-child(odd) td{
-    background-color:rgba(29, 3, 3, 0);
-}
-table tr:nth-child(even) td{
-    background-color:#fff;
-} */
 #narrow{
     width: 3px;
 
@@ -193,4 +187,26 @@ table tr:nth-child(even) td{
 
 #tweety {
     background: src(#defaultCanvas0);
+}
+
+#canvases{
+    text-align: center !important;
+    width:60%; 
+    height:700px;
+    border:1px solid;
+    position:absolute;
+    padding: 5%;
+    margin-left:20px;
+    pointer-events: none;
+}
+
+#defaultCanvas0{
+    width: 1000px;
+    height:400px;
+    margin-left:250px;
+    margin-bottom:1000px;
+    text-align: center;
+    top:10px;
+    /* position:floating; */
+
 }

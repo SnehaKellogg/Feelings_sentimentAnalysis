@@ -16,24 +16,18 @@ from flask import Flask, jsonify, render_template, request
 app = Flask(__name__, static_url_path='/static')
 
 
-@app.route("/")
+@app.route("/",methods=['GET'])
 def index():
     # """Return the homepage."""
     return render_template("index.html")
+    searchinput = request.args.get('text-input','')
+    # return searchinput
 
-@app.route('/', methods=['POST'])
-def my_form_post():
-    text = request.form['text']
-    input_text = text.upper()
-    return input_text
+# @app.route("/", methods=['GET'])
+# def serchword():
+    
 
-# @app.route('/varname', methods=['POST'])
-# def get_names():
-#    if request.method == 'POST':
-# 	   names = request.get_json()
-# 		   for name in names:
-# 			print name			
-# 	return '', 200
+
 
 @app.route("/bubblecloud")
 def bubblecloud():
@@ -45,7 +39,7 @@ def bubblecloud():
 # /v2/top-headlines
 def news():
     return render_template("news.html")
-
+    
 
 @app.route("/sidebar")
 def nav():
