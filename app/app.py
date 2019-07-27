@@ -42,10 +42,10 @@ def index():
 #    input_text = text.upper()
 #    return input_text
 
-@app.route("/scrape", methods=['POST'])
-def scrape():
-    table=scrape_tweets(searchinput)
-    return redirect("index.html", data=table)
+# @app.route("/scrape", methods=['POST'])
+# def scrape():
+#     table=scrape_tweets(searchinput)
+#     return redirect("index.html", data=table)
 
 @app.route("/bubblecloud")
 def bubblecloud():

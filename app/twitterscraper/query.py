@@ -6,9 +6,9 @@ from functools import partial
 # from multiprocessing.pool import Pool
 from billiard.pool import Pool
 
-from twitterscraper.tweet import Tweet
-from twitterscraper.ts_logger import logger
-from twitterscraper.user import User
+from tweet import Tweet
+from ts_logger import logger
+from user import User
 from fake_useragent import UserAgent
 import urllib
 
@@ -178,11 +178,9 @@ def query_tweets_once(*args, **kwargs):
         return []
 
 
-def query_tweets(query, limit, begindate, enddate, poolsize=20, lang):
+def query_tweets(query, limit, begindate=dt.date(2019, 1,1), enddate=dt.date.today(), poolsize=20, lang=''):
     no_days = (enddate - begindate).days
     
-    if(no_days < 0):
-        sys.exit('Begin date must occur before end date.')
     
     if poolsize > no_days:
         # Since we are assigning each pool a range of dates to query,
