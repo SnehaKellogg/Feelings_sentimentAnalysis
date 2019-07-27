@@ -25,12 +25,13 @@ app = Flask(__name__, static_url_path='/static')
 # model=joblib.load('tweet.pkl')
 
 
-@app.route("/",methods=['GET'])
+@app.route("/")
+# ,methods=['GET'])
 def index():
     # """Return the homepage."""
     return render_template("index.html")
-    searchinput = request.args.get('text-input','')
-    return searchinput
+    # searchinput = request.args.get('text-input','')
+    # return searchinput
 
 # @app.route("/", methods=['GET'])
 # def searchword():

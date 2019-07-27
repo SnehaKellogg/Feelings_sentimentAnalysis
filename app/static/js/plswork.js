@@ -28,7 +28,9 @@ var value;
 function handleChange(event) {
   // grab the value of the input field
   value = d3.event.target.value;
-  document.getElementById("output").innerHTML = "You searched for <code>&lt;"<?php echo $_GET['arg']; ?>"&gt;</code>";
+  document.getElementById("output").innerHTML = "You searched for <code>&lt;"+ value+"&gt;</code>";
+  document.getElementById("goagain").innerHTML = "Go again after checking other pages!! We are working on getting this seamless for you";
+  // document.getElementById("output").innerHTML = "You searched for <code>&lt;"<?php echo $_GET['arg']; ?>"&gt;</code>";
 //   return value;
   }
 text.on("change", handleChange);
