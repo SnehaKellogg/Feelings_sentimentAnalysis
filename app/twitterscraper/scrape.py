@@ -2,9 +2,9 @@ import json
 import collections
 import pandas as pd
 import datetime as dt
-from twitterscraper.query import query_tweets
-from twitterscraper.query import query_user_info
-from twitterscraper.ts_logger import logger
+from query import query_tweets
+from query import query_user_info
+from ts_logger import logger
 
 
 class JSONEncoder(json.JSONEncoder):
@@ -25,13 +25,7 @@ class JSONEncoder(json.JSONEncoder):
 
         return json.JSONEncoder.default(self, obj)
 
-def valid_date(s):
-    try:
-        return dt.datetime.strptime(s, "%Y-%m-%d").date()
-    except ValueError:
-        msg = "Not a valid date: '{0}'.".format(s)
-
-def main(query, begindate, enddate, limit, lang):
+def get(searchterm, model):
 #         parser.add_argument("--profiles", action='store_true',
 #                             help="Set this flag to if you want to scrape profile info of all the users where you" 
 #                             "have previously scraped from. After all of the tweets have been scraped it will start"
@@ -57,24 +51,41 @@ def main(query, begindate, enddate, limit, lang):
 #                 filename = 'userprofiles_' + args.output
 #                 with open(filename, "w", encoding="utf-8") as output:
 #                     json.dump(list_users_info, output, cls=JSONEncoder)
-    tweets = query_tweets(query, begindate, enddate, limit, lang)
-    dictionary  = (json.dumps(tweets, cls=JSONEncoder))
-    df = pd.read_json(dictionary)
-    smaller_df = df[["text", "timestamp", "tweet_id", "user_id", "username"]]
+    tweets = query_tweets(searchterm, limit=10000)
+    tweet_dictionary  = (json.dumps(tweets, cls=JSONEncoder))
+    tweet_df=pd.read_json(tweet_dictionary)
+    smaller_df = tweet_df[["text", "timestamp", "tweet_id", "user_id", "username"]]
     tweet_list = []
-    for row in smaller_df.itertuples():
+    for row in smaller_df.itertuples:
         new_dict= {}
         new_dict['tweet_id'] = row.tweet_id
         new_dict['text'] = row.text
         new_dict['time'] = row.timestamp
-        new_dict['sentiment'] = loaded_model.classify(tweet)
-        new_dict['score'] = loaded_model.prob_classify('pos')
+        prob_dist = model.prob_classify(row.text)
+        new_dict['score'] = prob_dist.prob('pos')
+        new_dict['sentiment'] = prob_dist.max()
+        #username = row.username
+        #twitterscraper.query.quer_user_info
+        tweet_list.append(new_dict)
+
         #username = row.username
         #twitterscraper.query.quer_user_info
         tweet_list.append(new_dict)
     return(tweet_list)
 
-
-fsghlksgjlkds(
-    
-)
+def sentiment_analysis(tweet_list):
+    tweet_df=pd.DataFrame(tweet_list)
+    average_score = tweet_df["score"].mean()
+    total = len(tweet_df.index)
+    counts = tweet_df.groupby('sentiment').count()
+    if average_score > 0.8:
+        sentiment = "Awesome! Over the moon!"
+    elif average_score > 0.6:
+        sentiment = "Pretty good."
+    elif average_score > 0.4:
+        sentiment = "Meh. So-So."
+    elif average_score > 0.2:
+        sentiment = "Dislike"
+    else:
+        sentiment = "Literally the worst. Active hatred."
+    return(average_score, sentiment)
